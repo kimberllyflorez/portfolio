@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1057863162988",
+    "firebase_url": "https://portafolio-9ce0d-default-rtdb.firebaseio.com",
+    "project_id": "portafolio-9ce0d",
+    "storage_bucket": "portafolio-9ce0d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057863162988:android:fe3f83fa67a4b6bfcf0c49",
+        "android_client_info": {
+          "package_name": "com.example.portafolio_kimberlly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057863162988-v59uomcf78ai5gesovdo833q2bl32s8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAczf1OxCuc_sO62jyuopbOLhANMNwN_3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057863162988-v59uomcf78ai5gesovdo833q2bl32s8o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
