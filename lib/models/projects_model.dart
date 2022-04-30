@@ -1,58 +1,27 @@
-
 import 'dart:convert';
 
-class Projects {
-  Projects({
-    required this.appMovie,
-    required this.portafafolio,
-  });
-
-  AppMovie appMovie;
-  AppMovie portafafolio;
-
-  factory Projects.fromJson(String str) => Projects.fromMap(json.decode(str));
-
-  String toJson() => json.encode(toMap());
-
-  factory Projects.fromMap(Map<String, dynamic> json) => Projects(
-    appMovie: AppMovie.fromMap(json["AppMovie"]),
-    portafafolio: AppMovie.fromMap(json["Portafafolio"]),
-  );
-
-  Map<String, dynamic> toMap() => {
-    "AppMovie": appMovie.toMap(),
-    "Portafafolio": portafafolio.toMap(),
-  };
-}
-
-class AppMovie {
-  AppMovie({
+class ProjectElement {
+  ProjectElement({
+    required this.description,
+    required this.gitUrl,
     required this.images,
-    required this.longDescription,
     required this.smallDescription,
     required this.title,
   });
 
-  String images;
-  String longDescription;
+  String description;
+  String gitUrl;
+  List<String> images;
   String smallDescription;
   String title;
 
-  factory AppMovie.fromJson(String str) => AppMovie.fromMap(json.decode(str));
+  factory ProjectElement.fromJson(String str) => ProjectElement.fromMap(json.decode(str));
 
-  String toJson() => json.encode(toMap());
-
-  factory AppMovie.fromMap(Map<String, dynamic> json) => AppMovie(
-    images: json["images"],
-    longDescription: json["longDescription"],
+  factory ProjectElement.fromMap(Map<String, dynamic> json) => ProjectElement(
+    description: json["description"],
+    gitUrl: json["git_url"],
+    images: List<String>.from(json["images"].map((x) => x)),
     smallDescription: json["smallDescription"],
-    title: json["title"],
+    title: json["title"] == null ? null : json["title"],
   );
-
-  Map<String, dynamic> toMap() => {
-    "images": images,
-    "longDescription": longDescription,
-    "smallDescription": smallDescription,
-    "title": title,
-  };
 }

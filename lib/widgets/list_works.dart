@@ -1,29 +1,30 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:portafolio_kimberlly/models/projects_model.dart';
 
 import '../palette.dart';
 
 class ListWorks extends StatelessWidget {
-  final String title;
-  final String description;
-  const ListWorks({Key? key,
-    required this.title,
-    required this.description
+  final ProjectElement? project;
+
+  const ListWorks({
+    Key? key,
+    required this.project,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(15)
-      ),
+          color: Colors.white, borderRadius: BorderRadius.circular(15)),
       margin: const EdgeInsets.all(10),
       height: 100,
       width: double.infinity,
       child: GestureDetector(
-        onTap:()=> Navigator.pushNamed(context, 'detailsApp'),
+        onTap: () => Navigator.pushNamed(
+          context,
+          'detailsApp',
+          arguments: project,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -33,7 +34,8 @@ class ListWorks extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title,
+                  Text(
+                    project?.title ?? '',
                     style: TextStyle(
                       color: Palette.backgroundColor3,
                       fontWeight: FontWeight.bold,
@@ -43,10 +45,11 @@ class ListWorks extends StatelessWidget {
                   const SizedBox(height: 5),
                   SizedBox(
                     width: 220,
-                    child: Text(description,
-                      style: const TextStyle(
-                          color: Colors.black54),
-                      maxLines: 2,),
+                    child: Text(
+                      project?.smallDescription ?? '',
+                      style: const TextStyle(color: Colors.black54),
+                      maxLines: 2,
+                    ),
                   ),
                 ],
               ),
@@ -54,9 +57,13 @@ class ListWorks extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.arrow_forward_sharp,color: Palette.backgroundColor3,),
-                const Text('more', style:
-                TextStyle(fontSize: 12),
+                Icon(
+                  Icons.arrow_forward_sharp,
+                  color: Palette.backgroundColor3,
+                ),
+                const Text(
+                  'more',
+                  style: TextStyle(fontSize: 12),
                 ),
               ],
             )

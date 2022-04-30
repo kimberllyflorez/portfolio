@@ -10,7 +10,6 @@ class IOService {
       final response = await http.get(url);
       return response.body;
     } catch (e) {
-      print(e);
       return '';
     }
   }

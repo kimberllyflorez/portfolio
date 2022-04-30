@@ -4,12 +4,12 @@ import 'package:portafolio_kimberlly/repository/firebase_database_repository.dar
 import 'screens/screens.dart';
 import 'package:provider/provider.dart';
 
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const AppState());
 }
+
 class AppState extends StatelessWidget {
   const AppState({Key? key}) : super(key: key);
 
@@ -18,7 +18,8 @@ class AppState extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-            create: (_)=> FirebaseDatabaseRepository())
+          create: (_) => FirebaseDatabaseRepository(),
+        )
       ],
       child: const MyApp(),
     );

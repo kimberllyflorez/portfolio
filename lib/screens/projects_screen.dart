@@ -9,6 +9,9 @@ class Projects extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final firebaseProvider =
+        Provider.of<FirebaseDatabaseRepository>(context, listen: false);
+    final projectsData = firebaseProvider.portfolioData?.projects;
     return Stack(
       children: [
         Positioned(
@@ -51,17 +54,10 @@ class Projects extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 10),
                 child: ListView.builder(
                     padding: const EdgeInsets.only(bottom: 20),
-                    itemCount: 5,
+                    itemCount: projectsData?.length ?? 0,
                     itemBuilder: (_, int index) {
-                      final firebaseProvider =
-                          Provider.of<FirebaseDatabaseRepository>(context,
-                              listen: false);
-                      final projectsData =
-                          firebaseProvider.portfolioData?.projects;
-                      return const ListWorks(
-                        title: 'App Movie',
-                        description:
-                            'This is an application that allows you to search for movies.',
+                      return ListWorks(
+                        project: projectsData?[index],
                       );
                     }),
               ),

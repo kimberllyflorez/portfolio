@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:portafolio_kimberlly/palette.dart';
 
 class Buttom extends StatelessWidget {
+  final String buttonText;
   final Function()? onTap;
 
   const Buttom({
-    Key? key,
+     Key? key,
     this.onTap,
+    required this.buttonText,
   }) : super(key: key);
 
   @override
@@ -20,7 +22,7 @@ class Buttom extends StatelessWidget {
         alignment: Alignment.center,
         width: 200,
         height: 50,
-        child: const Text('aqui va link a git'),
+        child:  Text(buttonText),
       ),
       onTap: onTap,
     );

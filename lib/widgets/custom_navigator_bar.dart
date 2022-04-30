@@ -18,14 +18,16 @@ class CustomButtomNavigator extends StatelessWidget {
     return BottomNavigationBar(
       selectedItemColor: Colors.white,
       backgroundColor: Palette.backgroundColor2,
-      items: [
+      selectedIconTheme: const IconThemeData(color: Colors.white),
+      unselectedIconTheme: IconThemeData(color: color),
+      items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.art_track_outlined, color: color),
-          label: 'Works',
+          icon: Icon(Icons.art_track_outlined),
+          label: 'Projects',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.three_p, color: color),
-          label: 'about me',
+          icon: Icon(Icons.three_p),
+          label: 'About me',
         ),
       ],
       currentIndex: currentIndex,

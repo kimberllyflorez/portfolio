@@ -1,23 +1,23 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portafolio_kimberlly/palette.dart';
 
 class CardItemWidget extends StatelessWidget {
   final String title;
-  final String smalldescription;
-  final String? longdescription;
+  final String? smallDescription;
+  final String? longDescription;
 
-  const CardItemWidget(
-      {Key? key,
-      required this.title,
-      required this.smalldescription,
-      this.longdescription})
-      : super(key: key);
+  const CardItemWidget({
+    Key? key,
+    required this.title,
+    this.smallDescription,
+    this.longDescription,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(20),
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,23 +30,24 @@ class CardItemWidget extends StatelessWidget {
               fontSize: 20,
             ),
           ),
+          if (smallDescription != null)
+            Text(
+              smallDescription ?? '',
+              style: const TextStyle(
+                color: Colors.black54,
+                height: 1.6,
+              ) ,
+            ),
           const SizedBox(height: 10),
           Text(
-            smalldescription,
-            style: const TextStyle(color: Colors.black54),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            longdescription ?? '',
+            longDescription ?? '',
             style: const TextStyle(
               color: Colors.black54,
+              height: 1.6,
             ),
-
           ),
         ],
       ),
     );
   }
 }
-
-
